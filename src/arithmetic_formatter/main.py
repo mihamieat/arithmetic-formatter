@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+"""Main package."""
+# -*- coding: utf-8 -*-
 from typing import List
 
 from arithmetic_formatter.myoperate import operate
@@ -11,10 +13,10 @@ from arithmetic_formatter.format import (
     display_dashes,
 )
 
-spaces_between_ops = 4
+SPACES_BETWEEN_OPS = 4
 
 
-def arithmetic_arranger(operations: List[str]):
+def arithmetic_arranger(operations: List[str], resolve: bool = False) -> str:
     """Arithmetic arranger function."""
     line1 = ""
     line2 = ""
@@ -23,16 +25,28 @@ def arithmetic_arranger(operations: List[str]):
     for operation in operations:
         first_num, second_num, operator = parse_operation(operation)
         result = operate(first_num, second_num, operator)
-        nr_of_dashes = number_of_dashes(str(first_num), str(second_num), str(result))
+        nr_of_dashes = number_of_dashes(
+            str(first_num), str(second_num), str(result), resolve
+        )
 
-        line1 += first_line(nr_of_dashes, str(first_num)) + " " * spaces_between_ops
+        line1 += first_line(nr_of_dashes, str(first_num)) + " " * SPACES_BETWEEN_OPS
         line2 += (
             second_line(nr_of_dashes, str(second_num), operator)
-            + " " * spaces_between_ops
+            + " " * SPACES_BETWEEN_OPS
         )
-        line3 += display_dashes(nr_of_dashes) + " " * spaces_between_ops
-        line4 += result_line(nr_of_dashes, str(result)) + " " * spaces_between_ops
-    return line1 + "\n" + line2 + "\n" + line3 + "\n" + line4
+        line3 += display_dashes(nr_of_dashes) + " " * SPACES_BETWEEN_OPS
+        line4 += result_line(nr_of_dashes, str(result)) + " " * SPACES_BETWEEN_OPS
+    return (
+        line1.rstrip()
+        + "\n"
+        + line2.rstrip()
+        + "\n"
+        + line3.rstrip()
+        + "\n"
+        + line4.rstrip()
+        if resolve
+        else line1.rstrip() + "\n" + line2.rstrip() + "\n" + line3.rstrip()
+    )
 
 
 if __name__ == "__main__":

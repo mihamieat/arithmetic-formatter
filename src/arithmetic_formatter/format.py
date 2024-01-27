@@ -16,11 +16,15 @@ def display_dashes(occurrences: int):
     return "-" * occurrences
 
 
-def number_of_dashes(num1: str, num2: str, result: str):
+def number_of_dashes(num1: str, num2: str, result: str, resolved: bool = False):
     """
     Returns the number of dashes required to represent the maximum length between two numbers.
     """
-    return max(len(num1), len(num2), len(result)) + 2
+    return (
+        max(len(num1), len(num2), len(result)) + 2
+        if resolved
+        else max(len(num1), len(num2)) + 2
+    )
 
 
 def first_line(nnb_of_dashes: int, num1: str):
