@@ -1,23 +1,29 @@
+# -*- coding: utf-8 -*-
 import pytest
 from arithmetic_formatter.myoperate import operate
 
+
 # Happy path tests with various realistic test values
-@pytest.mark.parametrize("num1, num2, operator, expected", [
-    (1, 1, '+', 2),  # ID: AddPositive
-    (1, 1, '-', 0),  # ID: SubtractPositive
-    (-1, -1, '+', -2),  # ID: AddNegative
-    (-1, -1, '-', 0),  # ID: SubtractNegative
-    (0, 0, '+', 0),  # ID: AddZero
-    (0, 0, '-', 0),  # ID: SubtractZero
-    (1000, 1, '+', 1001),  # ID: AddLargeNumber
-    (1000, 1, '-', 999),  # ID: SubtractLargeNumber
-])
+@pytest.mark.parametrize(
+    "num1, num2, operator, expected",
+    [
+        (1, 1, "+", 2),  # ID: AddPositive
+        (1, 1, "-", 0),  # ID: SubtractPositive
+        (-1, -1, "+", -2),  # ID: AddNegative
+        (-1, -1, "-", 0),  # ID: SubtractNegative
+        (0, 0, "+", 0),  # ID: AddZero
+        (0, 0, "-", 0),  # ID: SubtractZero
+        (1000, 1, "+", 1001),  # ID: AddLargeNumber
+        (1000, 1, "-", 999),  # ID: SubtractLargeNumber
+    ],
+)
 def test_operate_happy_path(num1, num2, operator, expected):
     # Act
     result = operate(num1, num2, operator)
 
     # Assert
     assert result == expected, f"Expected {expected}, got {result}"
+
 
 # Edge cases
 # @pytest.mark.parametrize("num1, num2, operator, expected", [

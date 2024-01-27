@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from typing import List
 
 from arithmetic_formatter.myoperate import operate
@@ -31,9 +32,10 @@ def arithmetic_arranger(operations: List[str]):
         )
         line3 += display_dashes(nr_of_dashes) + " " * spaces_between_ops
         line4 += result_line(nr_of_dashes, str(result)) + " " * spaces_between_ops
-    print(line1 + "\n" + line2 + "\n" + line3 + "\n" + line4)
+    return line1 + "\n" + line2 + "\n" + line3 + "\n" + line4
 
 
 if __name__ == "__main__":
     arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"])
     arithmetic_arranger(["32 + 8", "1 - 3801", "9999 + 9999", "523 - 49"])
+    print(arithmetic_arranger(["3801 - 2", "123 + 49"]))
