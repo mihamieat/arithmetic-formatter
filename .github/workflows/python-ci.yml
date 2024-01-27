@@ -61,4 +61,4 @@ jobs:
 
       - name: Run pylint
         run: |
-          poetry run pylint time_calculator
+          poetry run pylint arithmetic_formatter
