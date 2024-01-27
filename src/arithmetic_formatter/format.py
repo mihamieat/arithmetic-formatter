@@ -2,7 +2,6 @@
 """Formating modules."""
 
 
-# -*- coding: utf-8 -*-
 def display_line(line: list, space: int = 0):
     """Return a string of each element in the given line with an optional leading space."""
     for values in line:

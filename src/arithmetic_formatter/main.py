@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """Main package."""
-# -*- coding: utf-8 -*-
 from typing import List
 
 from arithmetic_formatter.myoperate import operate
