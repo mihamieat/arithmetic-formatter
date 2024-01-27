@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+"""Parsing methods package."""
+
+
+# -*- coding: utf-8 -*-
 def parse_operation(operation_string):
     """
     Parses an arithmetic operation string and returns the operands and operator.
